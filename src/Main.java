@@ -7,7 +7,7 @@ public class Main {
         Random rand = new Random(0);
         System.out.print("Введите размер дерева: ");
         int n = sc.nextInt();
-        int d = sc.nextInt();
+
         Tree tree = new Tree();
         for (int i = 0; i < n; i++) {
             tree.insert(rand.nextInt(100));
@@ -15,13 +15,18 @@ public class Main {
 
         }
         tree.print();
+        long srart_time, end_time;
+        int value;
+        srart_time = System.nanoTime();
+        value = tree.minValue();
         System.out.println("Минимальное значение в дереве: " + tree.minValue());
+        end_time = System.nanoTime();
+        System.out.println("\tвычеслено за " + ( end_time - srart_time)*1e-9);
         System.out.println("Максимальное значение в дереве: " + tree.maxValue());
         System.out.println("Сумма элементов дерева: " + tree.sum());
         System.out.println("Колличество элементов дерева: " + tree.count());
         System.out.println("Среднее арифметическое элементов дерева: " + tree.avg());
-       /* System.out.println("Введите элемент для удаления: ");
-        System.out.println(tree.erase();*/
+System.out.println("Глубина дерева: " + tree.depth());
 
         UniqueTree u_Tree = new UniqueTree();
         for (int i = 0; i < n; i++) {
@@ -35,5 +40,14 @@ public class Main {
         System.out.println("Сумма элементов дерева: " + u_Tree.sum());
         System.out.println("Колличество элементов дерева: " + u_Tree.count());
         System.out.println("Среднее арифметическое элементов дерева: " + u_Tree.avg());
+        System.out.println("Глубина дерева: " + u_Tree.depth());
+       /* Tree tree  = new Tree(new int[]{50, 25, 75, 16, 32, 64, 80 });
+        tree.print();
+        System.out.print("Введите значение удаляемого элемента: ");
+        int value = sc.nextInt();
+        tree.erase(value);*/
+
+
+
     }
 }

@@ -30,7 +30,11 @@ public class Tree {
         Root = null;
         System.out.println("TConstructor:\t" + Integer.toHexString(hashCode()));
     }
-
+/*public Tree (int[]arr){
+        for(int i : arr){
+            insert([i]);
+        }
+}*/
     public void insert(int Data) {
         insert(Data, Root);
     }
@@ -53,9 +57,10 @@ public class Tree {
 /*public void erase(int Data){
         erase(Root, Data);
         return erase(Element);
-}*/
-protected Element erase(Element left, int Data){
+}
+protected void erase(Element Root, int Data){
         if(Root == null) return null;
+
         if(Data == Root.Data){
             if(Root.Left == Root.Right){
                 Root = null;
@@ -76,7 +81,18 @@ protected Element erase(Element left, int Data){
            return Root;
         }
     return null;
-}
+}*/
+    public int depth(){
+        return depth(Root);
+    }
+    private int depth(Element Root){
+        if(Root == null)return 0;
+
+        int l_depth = depth(Root.Left)+1;
+        int r_depth = depth(Root.Right)+1;
+        return l_depth>r_depth ? l_depth : r_depth;
+    }
+
     protected void clear() {
         Root = null;
         System.gc();
